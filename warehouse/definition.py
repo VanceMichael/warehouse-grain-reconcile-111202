@@ -1,0 +1,1 @@
+SCHEMA = {'charges': 'line TEXT PRIMARY KEY, order_id TEXT NOT NULL, currency TEXT NOT NULL, amount TEXT NOT NULL', 'packages': 'package TEXT PRIMARY KEY, order_id TEXT NOT NULL, units INTEGER NOT NULL'}

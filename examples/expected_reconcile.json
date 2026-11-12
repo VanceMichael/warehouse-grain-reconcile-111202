@@ -1,0 +1,115 @@
+{
+  "summary": {
+    "run": "run-v1",
+    "partitions": 10,
+    "categories": {
+      "matched": 4,
+      "within_tolerance": 1,
+      "true_difference": 2,
+      "indeterminate": 3
+    },
+    "passed": false
+  },
+  "partitions": [
+    {
+      "package": "p1",
+      "channel": "express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "receivable": "5.00",
+      "settled": "5.00",
+      "difference": "0.00",
+      "category": "matched"
+    },
+    {
+      "package": "p2",
+      "channel": "express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "receivable": "5.01",
+      "settled": "5.06",
+      "difference": "0.05",
+      "category": "within_tolerance"
+    },
+    {
+      "package": "p3",
+      "channel": "express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "receivable": "6.66",
+      "settled": "6.66",
+      "difference": "0.00",
+      "category": "matched"
+    },
+    {
+      "package": "p4",
+      "channel": "express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "receivable": "6.67",
+      "settled": "6.67",
+      "difference": "0.00",
+      "category": "matched"
+    },
+    {
+      "package": "p5",
+      "channel": "express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "receivable": "6.67",
+      "settled": null,
+      "difference": null,
+      "category": "indeterminate"
+    },
+    {
+      "package": "p6",
+      "channel": "truck",
+      "business_date": "2026-11-02",
+      "currency": "USD",
+      "receivable": "30.00",
+      "settled": "30.00",
+      "difference": "0.00",
+      "category": "matched"
+    },
+    {
+      "package": "p7",
+      "channel": "express",
+      "business_date": "2026-11-03",
+      "currency": "CNY",
+      "receivable": "8.00",
+      "settled": null,
+      "difference": null,
+      "category": "indeterminate"
+    },
+    {
+      "package": "p8",
+      "channel": "truck",
+      "business_date": "2026-11-03",
+      "currency": "CNY",
+      "receivable": "9.99",
+      "settled": "0.00",
+      "difference": "-9.99",
+      "category": "true_difference"
+    },
+    {
+      "package": "p9",
+      "channel": "express",
+      "business_date": "2026-11-04",
+      "currency": "CNY",
+      "receivable": "100.00",
+      "settled": "100.50",
+      "difference": "0.50",
+      "category": "true_difference"
+    },
+    {
+      "package": "pX",
+      "channel": "truck",
+      "business_date": "2026-11-04",
+      "currency": "CNY",
+      "receivable": null,
+      "settled": "1.00",
+      "difference": null,
+      "category": "indeterminate"
+    }
+  ]
+}

@@ -1,4 +1,16 @@
 {
-  "charges": "line TEXT PRIMARY KEY, order_id TEXT NOT NULL, currency TEXT NOT NULL, amount TEXT NOT NULL",
-  "packages": "package TEXT PRIMARY KEY, order_id TEXT NOT NULL, units INTEGER NOT NULL"
+  "inputs": {
+    "charges": "line TEXT PRIMARY KEY, order_id TEXT NOT NULL, channel TEXT NOT NULL, business_date TEXT NOT NULL, currency TEXT NOT NULL, amount TEXT NOT NULL",
+    "packages": "package TEXT PRIMARY KEY, order_id TEXT NOT NULL, units INTEGER NOT NULL",
+    "settlements": "line TEXT PRIMARY KEY, package TEXT NOT NULL, channel TEXT NOT NULL, business_date TEXT NOT NULL, currency TEXT NOT NULL, amount TEXT NOT NULL",
+    "channel_mappings": "version TEXT NOT NULL, source_channel TEXT NOT NULL, target_channel TEXT NOT NULL, effective_from TEXT NOT NULL, PRIMARY KEY (version, source_channel, effective_from)",
+    "allocation_rules": "order_id TEXT PRIMARY KEY, mode TEXT NOT NULL",
+    "allocation_weights": "order_id TEXT NOT NULL, package TEXT NOT NULL, weight TEXT NOT NULL, PRIMARY KEY (order_id, package)"
+  },
+  "runtime": {
+    "recon_runs": "run_id TEXT PRIMARY KEY, fingerprint TEXT NOT NULL, params TEXT NOT NULL, status TEXT NOT NULL, summary TEXT NOT NULL",
+    "recon_results": "run_id TEXT NOT NULL, package TEXT NOT NULL, channel TEXT NOT NULL, business_date TEXT NOT NULL, currency TEXT NOT NULL, receivable TEXT, settled TEXT, difference TEXT, category TEXT NOT NULL, PRIMARY KEY (run_id, package, channel, business_date, currency)",
+    "recon_allocations": "run_id TEXT NOT NULL, charge_line TEXT NOT NULL, order_id TEXT NOT NULL, package TEXT NOT NULL, weight TEXT NOT NULL, share TEXT NOT NULL, allocated TEXT NOT NULL, residual INTEGER NOT NULL, source_channel TEXT NOT NULL, channel TEXT NOT NULL, business_date TEXT NOT NULL, currency TEXT NOT NULL, PRIMARY KEY (run_id, charge_line, package)",
+    "recon_settlements": "run_id TEXT NOT NULL, line TEXT NOT NULL, package TEXT NOT NULL, source_channel TEXT NOT NULL, channel TEXT NOT NULL, business_date TEXT NOT NULL, currency TEXT NOT NULL, amount TEXT NOT NULL, PRIMARY KEY (run_id, line)"
+  }
 }

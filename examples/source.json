@@ -3,8 +3,58 @@
     {
       "line": "c1",
       "order_id": "o1",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
       "currency": "CNY",
       "amount": "10.01"
+    },
+    {
+      "line": "c2",
+      "order_id": "o2",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "20.00"
+    },
+    {
+      "line": "c3",
+      "order_id": "o3",
+      "channel": "old-truck",
+      "business_date": "2026-11-02",
+      "currency": "USD",
+      "amount": "30.00"
+    },
+    {
+      "line": "c4",
+      "order_id": "o4",
+      "channel": "old-express",
+      "business_date": "2026-11-03",
+      "currency": "CNY",
+      "amount": "8.00"
+    },
+    {
+      "line": "c5",
+      "order_id": "o5",
+      "channel": "old-truck",
+      "business_date": "2026-11-03",
+      "currency": "CNY",
+      "amount": "9.99"
+    },
+    {
+      "line": "c6",
+      "order_id": "o6",
+      "channel": "legacy-express",
+      "business_date": "2026-11-04",
+      "currency": "CNY",
+      "amount": "100.00"
+    },
+    {
+      "line": "c7",
+      "order_id": "o7",
+      "channel": "old-express",
+      "business_date": "2026-11-05",
+      "currency": "CNY",
+      "amount": "1.00"
     }
   ],
   "packages": [
@@ -17,6 +67,215 @@
       "package": "p2",
       "order_id": "o1",
       "units": 2
+    },
+    {
+      "package": "p3",
+      "order_id": "o2",
+      "units": 1
+    },
+    {
+      "package": "p4",
+      "order_id": "o2",
+      "units": 1
+    },
+    {
+      "package": "p5",
+      "order_id": "o2",
+      "units": 1
+    },
+    {
+      "package": "p6",
+      "order_id": "o3",
+      "units": 1
+    },
+    {
+      "package": "p7",
+      "order_id": "o4",
+      "units": 1
+    },
+    {
+      "package": "p8",
+      "order_id": "o5",
+      "units": 1
+    },
+    {
+      "package": "p9",
+      "order_id": "o6",
+      "units": 1
+    },
+    {
+      "package": "p11",
+      "order_id": "o7",
+      "units": 1
+    }
+  ],
+  "settlements": [
+    {
+      "line": "s1",
+      "package": "p1",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "5.00"
+    },
+    {
+      "line": "s2",
+      "package": "p2",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "5.06"
+    },
+    {
+      "line": "s3",
+      "package": "p3",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "6.66"
+    },
+    {
+      "line": "s4",
+      "package": "p4",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "4.00"
+    },
+    {
+      "line": "s5",
+      "package": "p4",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "2.67"
+    },
+    {
+      "line": "s6",
+      "package": "p6",
+      "channel": "old-truck",
+      "business_date": "2026-11-02",
+      "currency": "USD",
+      "amount": "30.00"
+    },
+    {
+      "line": "s7",
+      "package": "p8",
+      "channel": "old-truck",
+      "business_date": "2026-11-03",
+      "currency": "CNY",
+      "amount": "0.00"
+    },
+    {
+      "line": "s8",
+      "package": "p9",
+      "channel": "legacy-express",
+      "business_date": "2026-11-04",
+      "currency": "CNY",
+      "amount": "100.50"
+    },
+    {
+      "line": "s9",
+      "package": "pX",
+      "channel": "old-truck",
+      "business_date": "2026-11-04",
+      "currency": "CNY",
+      "amount": "1.00"
+    },
+    {
+      "line": "s10",
+      "package": "p11",
+      "channel": "old-express",
+      "business_date": "2026-11-05",
+      "currency": "CNY",
+      "amount": "1.00"
+    }
+  ],
+  "channel_mappings": [
+    {
+      "version": "v1",
+      "source_channel": "old-express",
+      "target_channel": "express",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "version": "v1",
+      "source_channel": "legacy-express",
+      "target_channel": "express",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "version": "v1",
+      "source_channel": "old-truck",
+      "target_channel": "truck",
+      "effective_from": "2026-01-01"
+    }
+  ],
+  "allocation_rules": [
+    {
+      "order_id": "o1",
+      "mode": "explicit"
+    },
+    {
+      "order_id": "o2",
+      "mode": "units"
+    },
+    {
+      "order_id": "o3",
+      "mode": "explicit"
+    },
+    {
+      "order_id": "o4",
+      "mode": "explicit"
+    },
+    {
+      "order_id": "o5",
+      "mode": "explicit"
+    },
+    {
+      "order_id": "o6",
+      "mode": "explicit"
+    },
+    {
+      "order_id": "o7",
+      "mode": "explicit"
+    }
+  ],
+  "allocation_weights": [
+    {
+      "order_id": "o1",
+      "package": "p1",
+      "weight": "1"
+    },
+    {
+      "order_id": "o1",
+      "package": "p2",
+      "weight": "1"
+    },
+    {
+      "order_id": "o3",
+      "package": "p6",
+      "weight": "1"
+    },
+    {
+      "order_id": "o4",
+      "package": "p7",
+      "weight": "1"
+    },
+    {
+      "order_id": "o5",
+      "package": "p8",
+      "weight": "1"
+    },
+    {
+      "order_id": "o6",
+      "package": "p9",
+      "weight": "1"
+    },
+    {
+      "order_id": "o7",
+      "package": "p11",
+      "weight": "1"
     }
   ]
 }

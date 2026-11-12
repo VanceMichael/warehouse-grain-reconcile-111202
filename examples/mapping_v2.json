@@ -1,0 +1,22 @@
+{
+  "channel_mappings": [
+    {
+      "version": "v2",
+      "source_channel": "old-express",
+      "target_channel": "express-main",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "version": "v2",
+      "source_channel": "legacy-express",
+      "target_channel": "express-main",
+      "effective_from": "2026-01-01"
+    },
+    {
+      "version": "v2",
+      "source_channel": "old-truck",
+      "target_channel": "truck",
+      "effective_from": "2026-01-01"
+    }
+  ]
+}

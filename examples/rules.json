@@ -1,0 +1,10 @@
+{
+  "tolerances": {
+    "CNY": "0.05",
+    "USD": "0.05"
+  },
+  "precision": {
+    "CNY": 2,
+    "USD": 2
+  }
+}

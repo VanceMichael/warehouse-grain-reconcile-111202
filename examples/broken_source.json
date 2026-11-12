@@ -1,0 +1,32 @@
+{
+  "charges": [
+    {
+      "line": "cb1",
+      "order_id": "ob1",
+      "channel": "mystery",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "3.00"
+    }
+  ],
+  "packages": [
+    {
+      "package": "pb1",
+      "order_id": "ob1",
+      "units": 1
+    }
+  ],
+  "allocation_rules": [
+    {
+      "order_id": "ob1",
+      "mode": "explicit"
+    }
+  ],
+  "allocation_weights": [
+    {
+      "order_id": "ob1",
+      "package": "pb1",
+      "weight": "1"
+    }
+  ]
+}

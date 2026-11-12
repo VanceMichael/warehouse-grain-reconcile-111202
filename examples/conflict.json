@@ -1,0 +1,12 @@
+{
+  "settlements": [
+    {
+      "line": "s4",
+      "package": "p4",
+      "channel": "old-express",
+      "business_date": "2026-11-01",
+      "currency": "CNY",
+      "amount": "9.99"
+    }
+  ]
+}

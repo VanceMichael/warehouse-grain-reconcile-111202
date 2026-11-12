@@ -4,7 +4,7 @@ import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
 
-from .definition import SCHEMA
+from .definition import IDEMPOTENT_TABLES, RUNTIME_SCHEMA, SCHEMA
 
 
 def encode(value):
@@ -17,6 +17,8 @@ def connect(path):
     connection.execute('PRAGMA foreign_keys=ON')
     connection.execute('PRAGMA busy_timeout=5000')
     for table, columns in SCHEMA.items():
+        connection.execute(f'CREATE TABLE IF NOT EXISTS "{table}" ({columns})')
+    for table, columns in RUNTIME_SCHEMA.items():
         connection.execute(f'CREATE TABLE IF NOT EXISTS "{table}" ({columns})')
     connection.execute('CREATE TABLE IF NOT EXISTS ingest_batches (batch TEXT PRIMARY KEY, digest TEXT NOT NULL, rows INTEGER NOT NULL)')
     return connection
@@ -54,6 +56,12 @@ def load_bundle(connection, bundle, batch):
             for row in rows:
                 if not isinstance(row, dict) or set(row) != set(columns):
                     raise ValueError('记录字段与已登记结构不一致')
+                if table in IDEMPOTENT_TABLES:
+                    existing = connection.execute(f'SELECT * FROM "{table}" WHERE line=?', (row['line'],)).fetchone()
+                    if existing is not None:
+                        if dict(existing) != row:
+                            raise ValueError('行标识重投内容不一致，阻断该次发布')
+                        continue
                 names = ', '.join(f'"{column}"' for column in columns)
                 placeholders = ', '.join('?' for column in columns)
                 connection.execute(f'INSERT INTO "{table}" ({names}) VALUES ({placeholders})', [row[column] for column in columns])
